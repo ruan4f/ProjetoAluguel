@@ -13,17 +13,29 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
+import negocio.Inicializador;
+import negocio.Pousada;
+import negocio.RegistrosAlugueis;
 
 /**
  *
  * @author cpl.5660120606
  */
 public class fmPrincipal extends javax.swing.JFrame {
-
+    
+    static public Pousada pousada; 
+    static public RegistrosAlugueis registrosAlugueis;
+    
     /**
      * Creates new form fmPrincipal
      */
     public fmPrincipal() {
+        this.pousada = Pousada.getInstance();
+        this.registrosAlugueis = RegistrosAlugueis.getInstance();
+        Inicializador inicializador = new Inicializador();
+        inicializador.InicializaQuartos(pousada);
+        inicializador.InicializaChales(pousada);
+        this.pousada.toString();
         initComponents();
     }
 
@@ -44,7 +56,11 @@ public class fmPrincipal extends javax.swing.JFrame {
         laData = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItemCheckIn = new javax.swing.JMenuItem();
+        jMenuItemCheckOut = new javax.swing.JMenuItem();
+        jMenuItemRelatorio = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItemAtualizarDados = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
 
@@ -108,10 +124,44 @@ public class fmPrincipal extends javax.swing.JFrame {
         );
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jMenu1.setText("Cadastros");
+        jMenu1.setText("Arquivo");
+
+        jMenuItemCheckIn.setText("Check In");
+        jMenuItemCheckIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCheckInActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemCheckIn);
+
+        jMenuItemCheckOut.setText("Check Out");
+        jMenuItemCheckOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemCheckOutActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemCheckOut);
+
+        jMenuItemRelatorio.setText("Relatórios");
+        jMenuItemRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemRelatorioActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemRelatorio);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Relatórios");
+        jMenu2.setText("Configurações");
+
+        jMenuItemAtualizarDados.setText("Atualizar Dados");
+        jMenuItemAtualizarDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAtualizarDadosActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItemAtualizarDados);
+
         jMenuBar1.add(jMenu2);
 
         jMenu4.setText("Ajuda");
@@ -176,6 +226,30 @@ public class fmPrincipal extends javax.swing.JFrame {
         
          
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItemCheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCheckInActionPerformed
+        // TODO add your handling code here:
+        Checkin checkin = new Checkin();
+        checkin.show(true);
+    }//GEN-LAST:event_jMenuItemCheckInActionPerformed
+
+    private void jMenuItemCheckOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCheckOutActionPerformed
+        // TODO add your handling code here:
+        Checkout checkout = new Checkout();
+        checkout.show(true);
+    }//GEN-LAST:event_jMenuItemCheckOutActionPerformed
+
+    private void jMenuItemRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemRelatorioActionPerformed
+        // TODO add your handling code here:
+        Relatorio relatorio = new Relatorio();
+        relatorio.show(true);
+    }//GEN-LAST:event_jMenuItemRelatorioActionPerformed
+
+    private void jMenuItemAtualizarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAtualizarDadosActionPerformed
+        // TODO add your handling code here:
+        Atualizar atualizar = new Atualizar();
+        atualizar.show(true);
+    }//GEN-LAST:event_jMenuItemAtualizarDadosActionPerformed
     
     private String mostrarData(){
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -229,6 +303,10 @@ public class fmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItemAtualizarDados;
+    private javax.swing.JMenuItem jMenuItemCheckIn;
+    private javax.swing.JMenuItem jMenuItemCheckOut;
+    private javax.swing.JMenuItem jMenuItemRelatorio;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel laData;
