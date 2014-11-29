@@ -1,5 +1,7 @@
 package apresentacao;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import negocio.Cliente;
 import negocio.RegistrosAlugueis;
 import negocio.Pousada;
@@ -219,6 +221,18 @@ public class Checkin extends javax.swing.JFrame {
                     aluguel.setCliente(cliente);
                     aluguel.setQuarto(pousada.buscaQuarto(i));
                     aluguel.setDataEntrada(data);
+                    
+                    //Faz a verificação da data prevista de saída
+                    try{
+                        String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
+                        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                        Date dataFormatadaSaida = formatter.parse(dataSaida);
+                        aluguel.setDataSaida(dataFormatadaSaida);
+                    }catch(ParseException e){
+                        JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");
+                               
+                    }
+                    
                     aluguel.getQuarto().setReservado(true);                   
                     registroAlugueis.addAluguel(aluguel);
                     break;
@@ -272,7 +286,7 @@ public class Checkin extends javax.swing.JFrame {
                                 + "com  " + txtCamasExtars.getText() + " camas extras \n para o Cliente: " + txtNome.getText());
                     }
 
-//Instancia objetos que serão incluídos.
+                    //Instancia objetos que serão incluídos.
                  
                     Cliente cliente = new Cliente();
                     Date data = new Date();

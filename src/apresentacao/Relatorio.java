@@ -34,8 +34,9 @@ public class Relatorio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextResult = new javax.swing.JTextArea();
-        jButtonRelQuartos = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btRelatorioAlugueis = new javax.swing.JButton();
+        btSair = new javax.swing.JButton();
+        btRelatorioSaidas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,19 +46,24 @@ public class Relatorio extends javax.swing.JFrame {
         jTextResult.setRows(5);
         jScrollPane1.setViewportView(jTextResult);
 
-        jButtonRelQuartos.setText("Gerar Relatório de Alugueis");
-        jButtonRelQuartos.addActionListener(new java.awt.event.ActionListener() {
+        btRelatorioAlugueis.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/report-32.png"))); // NOI18N
+        btRelatorioAlugueis.setText("Gerar Relatório de Alugueis");
+        btRelatorioAlugueis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRelQuartosActionPerformed(evt);
+                btRelatorioAlugueisActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Cancelar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Cancel-32.png"))); // NOI18N
+        btSair.setText("Sair");
+        btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btSairActionPerformed(evt);
             }
         });
+
+        btRelatorioSaidas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/report-32.png"))); // NOI18N
+        btRelatorioSaidas.setText("Gerar Relatório de Saídas");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -67,24 +73,29 @@ public class Relatorio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btSair)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
                         .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonRelQuartos)
-                        .addGap(31, 358, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 51, Short.MAX_VALUE)
+                        .addComponent(btRelatorioAlugueis)
+                        .addGap(40, 40, 40)
+                        .addComponent(btRelatorioSaidas)
+                        .addGap(76, 76, 76))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonRelQuartos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btRelatorioAlugueis)
+                    .addComponent(btRelatorioSaidas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btSair)
                 .addGap(30, 30, 30))
         );
 
@@ -109,15 +120,15 @@ public class Relatorio extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonRelQuartosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRelQuartosActionPerformed
+    private void btRelatorioAlugueisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatorioAlugueisActionPerformed
         // TODO add your handling code here:
         this.jTextResult.setText( reg.toString());
-    }//GEN-LAST:event_jButtonRelQuartosActionPerformed
+    }//GEN-LAST:event_btRelatorioAlugueisActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
         // TODO add your handling code here:
         this.dispose();;
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btSairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,8 +166,9 @@ public class Relatorio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButtonRelQuartos;
+    private javax.swing.JButton btRelatorioAlugueis;
+    private javax.swing.JButton btRelatorioSaidas;
+    private javax.swing.JButton btSair;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextResult;

@@ -5,6 +5,8 @@ import negocio.Aluguel;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -161,24 +163,16 @@ public class Checkout extends javax.swing.JFrame {
         // TODO add your handling code here:
         RegistrosAlugueis registroAlugueis = RegistrosAlugueis.getInstance();
         Aluguel aluguel =  new Aluguel();
+        
         try {
             aluguel = registroAlugueis.getAlugueis().get(registroAlugueis.buscaAluguel(txtNome.getText()));
-            
-            String data = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(jTextDia.getDate());
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-            Date dataFormatada = formatter.parse(data);
-            //System.out.println("data de agora - " + data + " Data formatada: " + dataFormatada);
-            aluguel.setDataSaida(dataFormatada);
             jTextLog.setText(aluguel.gerarReciboAluguel());
-            
-        }catch(ParseException e){
-            JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");
-                               
+            JOptionPane.showMessageDialog(this, "Este cliente está com a data de saída como prevista."
+                    + "\nSe quiser alterar é só escolher a data de saída atual e "
+                    + "clicar em Registrar Saída.");
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, ex);
-        }
-        
-        
+            JOptionPane.showMessageDialog(this, "Cliente não encontrado. Por favor digite um nome válido!");
+        }    
     }//GEN-LAST:event_btConsultarActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
