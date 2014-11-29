@@ -1,13 +1,10 @@
 package apresentacao;
 
-
 import negocio.RegistrosAlugueis;
 import negocio.Aluguel;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -40,7 +37,7 @@ public class Checkout extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextNome = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextLog = new javax.swing.JTextArea();
         btRegistrarSaida = new javax.swing.JButton();
@@ -99,29 +96,28 @@ public class Checkout extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextDia, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextNome)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(btRegistrarSaida)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(btConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
+                            .addComponent(btRegistrarSaida, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+                            .addComponent(txtNome, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextDia, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(btConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(45, 45, 45)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(btNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 20, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,15 +125,15 @@ public class Checkout extends javax.swing.JFrame {
                     .addComponent(jTextDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btConsultar)
                     .addComponent(btNovo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btRegistrarSaida)
                     .addComponent(btSair))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -153,8 +149,8 @@ public class Checkout extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -166,17 +162,16 @@ public class Checkout extends javax.swing.JFrame {
         RegistrosAlugueis registroAlugueis = RegistrosAlugueis.getInstance();
         Aluguel aluguel =  new Aluguel();
         try {
-            aluguel = registroAlugueis.getAlugueis().get(registroAlugueis.buscaAluguel(jTextNome.getText()));
-            Date data = new Date();
+            aluguel = registroAlugueis.getAlugueis().get(registroAlugueis.buscaAluguel(txtNome.getText()));
             
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            
-            data = sdf.parse(jTextDia.getDate().toGMTString());
-            aluguel.setDataSaida(data);
+            String data = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(jTextDia.getDate());
+            Date dataFormatada = new Date(data);
+            System.out.println("data de agora - " + data);
+            aluguel.setDataSaida(dataFormatada);
             jTextLog.setText(aluguel.gerarReciboAluguel());
             
         }catch(ParseException e){
-            JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor digite dd/MM/yyyy HH:mm");
+            JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");
                                
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, ex);
@@ -195,7 +190,7 @@ public class Checkout extends javax.swing.JFrame {
         RegistrosAlugueis registroAlugueis = RegistrosAlugueis.getInstance();
         Aluguel aluguel =  new Aluguel();
         try {
-            aluguel = registroAlugueis.getAlugueis().get(registroAlugueis.buscaAluguel(jTextNome.getText()));
+            aluguel = registroAlugueis.getAlugueis().get(registroAlugueis.buscaAluguel(txtNome.getText()));
             Date data = new Date();
         
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -208,7 +203,7 @@ public class Checkout extends javax.swing.JFrame {
             }else {
                 aluguel.quarto.setReservado(false);    
             }    
-            try { registroAlugueis.removeAluguel(registroAlugueis.buscaAluguel(jTextNome.getText()));
+            try { registroAlugueis.removeAluguel(registroAlugueis.buscaAluguel(txtNome.getText()));
             }catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Não foi possível realizar checkout");
             }
@@ -270,6 +265,6 @@ public class Checkout extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private com.toedter.calendar.JDateChooser jTextDia;
     private javax.swing.JTextArea jTextLog;
-    private javax.swing.JTextField jTextNome;
+    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }

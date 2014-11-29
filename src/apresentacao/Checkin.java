@@ -37,35 +37,35 @@ public class Checkin extends javax.swing.JFrame {
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextNome = new javax.swing.JTextField();
-        jComboBoxTipoAcomodacao = new javax.swing.JComboBox();
+        txtNome = new javax.swing.JTextField();
+        cbTipoAcomodacao = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
-        jTextCamasExtars = new javax.swing.JTextField();
+        txtCamasExtars = new javax.swing.JTextField();
         btRegistrar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea = new javax.swing.JTextArea();
+        txtArea = new javax.swing.JTextArea();
         btSair = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        dcData = new com.toedter.calendar.JDateChooser();
         btNovo = new javax.swing.JButton();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "CheckIn"));
 
         jLabel2.setText("Nome: ");
 
-        jComboBoxTipoAcomodacao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Quarto com Banheira", "Quarto sem Banheira", "Chalé", " " }));
-        jComboBoxTipoAcomodacao.addActionListener(new java.awt.event.ActionListener() {
+        cbTipoAcomodacao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Quarto com Banheira", "Quarto sem Banheira", "Chalé", " " }));
+        cbTipoAcomodacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTipoAcomodacaoActionPerformed(evt);
+                cbTipoAcomodacaoActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Camas extras");
 
-        jTextCamasExtars.addActionListener(new java.awt.event.ActionListener() {
+        txtCamasExtars.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextCamasExtarsActionPerformed(evt);
+                txtCamasExtarsActionPerformed(evt);
             }
         });
 
@@ -77,9 +77,9 @@ public class Checkin extends javax.swing.JFrame {
             }
         });
 
-        jTextArea.setColumns(20);
-        jTextArea.setRows(5);
-        jScrollPane1.setViewportView(jTextArea);
+        txtArea.setColumns(20);
+        txtArea.setRows(5);
+        jScrollPane1.setViewportView(txtArea);
 
         btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Cancel-32.png"))); // NOI18N
         btSair.setText("Sair");
@@ -108,15 +108,15 @@ public class Checkin extends javax.swing.JFrame {
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dcData, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jComboBoxTipoAcomodacao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbTipoAcomodacao, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGap(11, 11, 11)
                             .addComponent(jLabel3)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(jTextCamasExtars, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtCamasExtars, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
@@ -134,17 +134,17 @@ public class Checkin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxTipoAcomodacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbTipoAcomodacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextCamasExtars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCamasExtars, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dcData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -184,13 +184,13 @@ public class Checkin extends javax.swing.JFrame {
         RegistrosAlugueis registroAlugueis = RegistrosAlugueis.getInstance();
         Aluguel aluguel = new Aluguel();
         //VALIDA CAMPOS 
-        if (jTextNome.getText().equals("")) {
+        if (txtNome.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Digite um nome!");
                 return;
         }
         Aluguel aluguel2 = new Aluguel();   
         try {
-            aluguel2 = registroAlugueis.getAlugueis().get(registroAlugueis.buscaAluguel(jTextNome.getText()));           
+            aluguel2 = registroAlugueis.getAlugueis().get(registroAlugueis.buscaAluguel(txtNome.getText()));           
         } catch (Exception ex) {
             paraTudo = false;           
         }
@@ -200,14 +200,14 @@ public class Checkin extends javax.swing.JFrame {
         
         Pousada pousada = Pousada.getInstance();
         //Localiza quarto Disponível
-        if (jComboBoxTipoAcomodacao.getSelectedItem() == "Quarto com Banheira") {
+        if (cbTipoAcomodacao.getSelectedItem() == "Quarto com Banheira") {
             int i;
         //verifica os quartos
             for (i = 0; i < pousada.getQuantQuartos(); i++) {
                 // se achou um quarto com banheira
                 if ((pousada.buscaQuarto(i).isReservado() == false) && (pousada.buscaQuarto(i).isTemBanheira())) {
                     //Mensagem
-                    jTextArea.setText("Reservamos o quarto " + (i + 1) + " com \n Banheira para o Cliente: \n" + jTextNome.getText());
+                    txtArea.setText("Reservamos o quarto " + (i + 1) + " com \n Banheira para o Cliente: \n" + txtNome.getText());
                     //Instancia objetos que serão incluídos.
                     
                     Cliente cliente = new Cliente();
@@ -215,7 +215,7 @@ public class Checkin extends javax.swing.JFrame {
                     
                     // Seta Atributos
                     data.setTime(data.getTime());
-                    cliente.setNome(jTextNome.getText());
+                    cliente.setNome(txtNome.getText());
                     aluguel.setCliente(cliente);
                     aluguel.setQuarto(pousada.buscaQuarto(i));
                     aluguel.setDataEntrada(data);
@@ -223,16 +223,16 @@ public class Checkin extends javax.swing.JFrame {
                     registroAlugueis.addAluguel(aluguel);
                     break;
                 }
-                jTextArea.setText(" Não existe quarto disponível.");
+                txtArea.setText(" Não existe quarto disponível.");
             }
-        } else if (jComboBoxTipoAcomodacao.getSelectedItem() == "Quarto sem Banheira") {
+        } else if (cbTipoAcomodacao.getSelectedItem() == "Quarto sem Banheira") {
             int i;
 //verifica os quartos 
             for (i = 0; i < pousada.getQuantQuartos(); i++) {
                 // se achou um quarto com banheira
                 if ((pousada.buscaQuarto(i).isReservado() == false) && (pousada.buscaQuarto(i).isTemBanheira() == false)) {
                     //Mensagem
-                    jTextArea.setText("Reservamos o quarto " + (i + 1) + "sem Banheira \n para o Cliente: \n" + jTextNome.getText());
+                    txtArea.setText("Reservamos o quarto " + (i + 1) + " sem Banheira \n para o Cliente: \n" + txtNome.getText());
                     //Instancia objetos que serão incluídos.
                    
                     Cliente cliente = new Cliente();
@@ -240,7 +240,7 @@ public class Checkin extends javax.swing.JFrame {
                    
                     // Seta Atributos
                     data.setTime(data.getTime());
-                    cliente.setNome(jTextNome.getText());
+                    cliente.setNome(txtNome.getText());
                     aluguel.setCliente(cliente);
                     aluguel.setQuarto(pousada.buscaQuarto(i));
                     aluguel.setDataEntrada(data);
@@ -248,12 +248,12 @@ public class Checkin extends javax.swing.JFrame {
                     registroAlugueis.addAluguel(aluguel);
                     break;
                 }
-                jTextArea.setText(" Não existe quarto disponível.");
+                txtArea.setText(" Não existe quarto disponível.");
             }
-        } else if (jComboBoxTipoAcomodacao.getSelectedItem() == "Chalé") {
+        } else if (cbTipoAcomodacao.getSelectedItem() == "Chalé") {
             int i;
         try {
-        Integer.parseInt(jTextCamasExtars.getText());
+        Integer.parseInt(txtCamasExtars.getText());
         }catch (Exception ex){
                 JOptionPane.showMessageDialog(this, "Somente números são permitidos");
                 return;
@@ -265,11 +265,11 @@ public class Checkin extends javax.swing.JFrame {
                 if ((pousada.getChale(i).isReservado() == false) && (pousada.buscaQuarto(i).isTemBanheira() == false)) {
                         //Mensagem
 
-                    if (jTextCamasExtars.getText().equals("")) {
-                        jTextArea.setText("Reservamos o Chalé " + (i + 1) + " \n para o Cliente: " + jTextNome.getText());
+                    if (txtCamasExtars.getText().equals("")) {
+                        txtArea.setText("Reservamos o Chalé " + (i + 1) + " \n para o Cliente: " + txtNome.getText());
                     } else {
-                        jTextArea.setText("Reservamos o Chalé " + (i + 1) + "\n"
-                                + "com  " + jTextCamasExtars.getText() + " camas extras \n para o Cliente: " + jTextNome.getText());
+                        txtArea.setText("Reservamos o Chalé " + (i + 1) + "\n"
+                                + "com  " + txtCamasExtars.getText() + " camas extras \n para o Cliente: " + txtNome.getText());
                     }
 
 //Instancia objetos que serão incluídos.
@@ -279,37 +279,37 @@ public class Checkin extends javax.swing.JFrame {
                   
                     // Seta Atributos
                     data.setTime(data.getTime());
-                    cliente.setNome(jTextNome.getText());
+                    cliente.setNome(txtNome.getText());
                     aluguel.setCliente(cliente);
                     aluguel.setChale(pousada.getChale(i));
                     aluguel.setDataEntrada(data);
                     aluguel.getChale().setReservado(true);
-                    if (jTextCamasExtars.getText().equals("")) {
+                    if (txtCamasExtars.getText().equals("")) {
                         aluguel.getChale().setCamasExtras(0);
                     } else {
-                        aluguel.getChale().setCamasExtras(Integer.valueOf(jTextCamasExtars.getText()));
+                        aluguel.getChale().setCamasExtras(Integer.valueOf(txtCamasExtars.getText()));
                     }
                     registroAlugueis.addAluguel(aluguel);
                     break;
                 }
-                jTextArea.setText(" Não existe quarto disponível.");
+                txtArea.setText(" Não existe quarto disponível.");
             }
             
         }
     }//GEN-LAST:event_btRegistrarActionPerformed
 
-    private void jComboBoxTipoAcomodacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoAcomodacaoActionPerformed
+    private void cbTipoAcomodacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoAcomodacaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTipoAcomodacaoActionPerformed
+    }//GEN-LAST:event_cbTipoAcomodacaoActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btSairActionPerformed
 
-    private void jTextCamasExtarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextCamasExtarsActionPerformed
+    private void txtCamasExtarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCamasExtarsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextCamasExtarsActionPerformed
+    }//GEN-LAST:event_txtCamasExtarsActionPerformed
 
     /**
      * @param args the command line arguments
@@ -351,16 +351,16 @@ public class Checkin extends javax.swing.JFrame {
     private javax.swing.JButton btRegistrar;
     private javax.swing.JButton btSair;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox jComboBoxTipoAcomodacao;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JComboBox cbTipoAcomodacao;
+    private com.toedter.calendar.JDateChooser dcData;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea;
-    private javax.swing.JTextField jTextCamasExtars;
-    private javax.swing.JTextField jTextNome;
+    private javax.swing.JTextArea txtArea;
+    private javax.swing.JTextField txtCamasExtars;
+    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }

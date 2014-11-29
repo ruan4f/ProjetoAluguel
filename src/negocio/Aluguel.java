@@ -22,9 +22,10 @@ public class Aluguel {
     private Date dataSaida;
     
     public String gerarReciboAluguel(){
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
         return "===============================\n Locatário: "+ getCliente().getNome() 
-               +"\n Data e Horário de entrada: "+ getDataEntrada().toGMTString() 
-               +"\n Data e Horário de Saída: " + getDataSaida().toGMTString() 
+               +"\n Data e Horário de entrada: "+ sdf.format(getDataEntrada())
+               +"\n Data e Horário de Saída: " + sdf.format(getDataSaida())
                +"\n Número de diárias: "+ this.calculaNumeroDiarias()
                +"\n Total devido: R$" + this.calculaTotalDevido()
                +"\n==============================";
@@ -132,13 +133,13 @@ public class Aluguel {
         if( null != this.quarto ){
             return "\n"+ "Cliente: " + cliente.getNome() 
                     +  quarto.toString() 
-                    + "\n Entrada: " + sdf.format(dataEntrada).toString()
+                    + "\n Entrada: " + sdf.format(dataEntrada)
                     //+ "Saida=" + dataSaida.toString() 
                     +"\n" ;
         }else if( null != this.chale ){
             return "\n"+ "Cliente: " + cliente.getNome() 
                     +  chale.toString() 
-                    + "\n Entrada: " + sdf.format(dataEntrada).toString()
+                    + "\n Entrada: " + sdf.format(dataEntrada)
                     //+ "Saida=" + dataSaida.toString() 
                     +"\n" ;
         } 
