@@ -49,7 +49,7 @@ public class RegistrosAlugueis {
     public int buscaAluguel(String nome)throws Exception{
         for(int i = 0; i <getAlugueis().size(); i++){
             if (getAlugueis().get(i).getCliente().getNome().equals(nome)){
-            return i;    
+                return i;    
             }
         }
         throw new Exception  ("Registro de Aluguel não encontrado.");

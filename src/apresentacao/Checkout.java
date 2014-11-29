@@ -168,10 +168,10 @@ public class Checkout extends javax.swing.JFrame {
         try {
             aluguel = registroAlugueis.getAlugueis().get(registroAlugueis.buscaAluguel(jTextNome.getText()));
             Date data = new Date();
-        
+            
             SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
             
-            data = sdf.parse(jTextDia.getCalendar().toString());
+            data = sdf.parse(jTextDia.getDate().toGMTString());
             aluguel.setDataSaida(data);
             jTextLog.setText(aluguel.gerarReciboAluguel());
             

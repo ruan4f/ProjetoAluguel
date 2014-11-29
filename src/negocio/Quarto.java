@@ -61,8 +61,8 @@ public class Quarto {
     @Override
     public String toString() {
         //return super.toString();
-        return "\nQuarto: " + this.getNumeroQuarto()  + "   Preço: R$" + this.getPreco() 
-                +" Possui Banheira: "+ (isTemBanheira() ? "Sim ":"Não " ) + " Disponivel: " + (isReservado() ? " Não":" Sim"  ) ;
+        return "\nQuarto: " + this.getNumeroQuarto()  + " - Preço: R$ " + this.getPreco() 
+                + " Possui Banheira: "+ (isTemBanheira() ? "Sim ":"Não " ) + " Disponivel: " + (isReservado() ? " Não":" Sim"  ) ;
         
     }
 

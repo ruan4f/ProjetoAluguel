@@ -185,16 +185,15 @@ public class Checkin extends javax.swing.JFrame {
         Aluguel aluguel = new Aluguel();
         //VALIDA CAMPOS 
         if (jTextNome.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Digite um nome");
+            JOptionPane.showMessageDialog(this, "Digite um nome!");
                 return;
         }
-         Aluguel aluguel2 = new Aluguel();   
+        Aluguel aluguel2 = new Aluguel();   
         try {
             aluguel2 = registroAlugueis.getAlugueis().get(registroAlugueis.buscaAluguel(jTextNome.getText()));           
         } catch (Exception ex) {
             paraTudo = false;           
         }
-   
         if (paraTudo) {
             JOptionPane.showMessageDialog(this, "No momento só alugamos uma instalação por pessoa");
         }
@@ -203,12 +202,12 @@ public class Checkin extends javax.swing.JFrame {
         //Localiza quarto Disponível
         if (jComboBoxTipoAcomodacao.getSelectedItem() == "Quarto com Banheira") {
             int i;
-//verifica os quartos
+        //verifica os quartos
             for (i = 0; i < pousada.getQuantQuartos(); i++) {
                 // se achou um quarto com banheira
                 if ((pousada.buscaQuarto(i).isReservado() == false) && (pousada.buscaQuarto(i).isTemBanheira())) {
                     //Mensagem
-                    jTextArea.setText("Reservamos o quarto" + (i + 1) + " com \nBanheira para o Cliente: \n" + jTextNome.getText());
+                    jTextArea.setText("Reservamos o quarto " + (i + 1) + " com \n Banheira para o Cliente: \n" + jTextNome.getText());
                     //Instancia objetos que serão incluídos.
                     
                     Cliente cliente = new Cliente();

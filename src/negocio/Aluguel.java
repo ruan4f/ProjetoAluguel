@@ -130,15 +130,15 @@ public class Aluguel {
         
         //VERIFICA SE É QUARTO OU CHALE
         if( null != this.quarto ){
-            return "\n"+ "Cliente : " + cliente.getNome() 
+            return "\n"+ "Cliente: " + cliente.getNome() 
                     +  quarto.toString() 
-                    + "\nEntrada :" + sdf.format(dataEntrada).toString()
+                    + "\n Entrada: " + sdf.format(dataEntrada).toString()
                     //+ "Saida=" + dataSaida.toString() 
                     +"\n" ;
         }else if( null != this.chale ){
-            return "\n"+ "Cliente : " + cliente.getNome() 
+            return "\n"+ "Cliente: " + cliente.getNome() 
                     +  chale.toString() 
-                    + "\nEntrada : " + sdf.format(dataEntrada).toString()
+                    + "\n Entrada: " + sdf.format(dataEntrada).toString()
                     //+ "Saida=" + dataSaida.toString() 
                     +"\n" ;
         } 
