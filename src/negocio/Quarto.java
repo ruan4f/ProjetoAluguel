@@ -62,8 +62,7 @@ public class Quarto {
     public String toString() {
         //return super.toString();
         return "\nQuarto: " + this.getNumeroQuarto()  + " - Preço: R$ " + this.getPreco() 
-                + " Possui Banheira: "+ (isTemBanheira() ? "Sim ":"Não " ) + " Disponivel: " + (isReservado() ? " Não":" Sim"  ) ;
-        
+                + " - Possui Banheira: "+ (isTemBanheira() ? "Sim":"Não" ) + " - Disponivel: " + (isReservado() ? " Não":" Sim" );
     }
 
     /**
@@ -83,13 +82,11 @@ public class Quarto {
     void setTemBanheira(boolean b) {
       this.temBanheira = b;
     }
-
     /**
      * @return the temBanheira
      */
     public boolean isTemBanheira() {
         return temBanheira;
     }
-    
-    
+
 }

@@ -165,8 +165,9 @@ public class Checkout extends javax.swing.JFrame {
             aluguel = registroAlugueis.getAlugueis().get(registroAlugueis.buscaAluguel(txtNome.getText()));
             
             String data = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(jTextDia.getDate());
-            Date dataFormatada = new Date(data);
-            System.out.println("data de agora - " + data);
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+            Date dataFormatada = formatter.parse(data);
+            //System.out.println("data de agora - " + data + " Data formatada: " + dataFormatada);
             aluguel.setDataSaida(dataFormatada);
             jTextLog.setText(aluguel.gerarReciboAluguel());
             
@@ -191,11 +192,12 @@ public class Checkout extends javax.swing.JFrame {
         Aluguel aluguel =  new Aluguel();
         try {
             aluguel = registroAlugueis.getAlugueis().get(registroAlugueis.buscaAluguel(txtNome.getText()));
-            Date data = new Date();
         
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-            data = sdf.parse( jTextDia.getCalendar().toString());
-            aluguel.setDataSaida(data);
+            String data = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(jTextDia.getDate());
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+            Date dataFormatada = formatter.parse(data);
+            
+            aluguel.setDataSaida(dataFormatada);
             jTextLog.setText("Realizado o CheckOut: \n"+ aluguel.gerarReciboAluguel());
             if (aluguel.getChale() != null) {
                 aluguel.chale.setCamasExtras(0);

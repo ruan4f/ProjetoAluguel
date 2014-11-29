@@ -34,7 +34,7 @@ public class Chale extends Quarto {
     @Override
     public String toString() {
         //return super.toString();
-        return "\nChalé: " + this.getNumeroQuarto() 
+        return "\n Chalé: " + this.getNumeroQuarto() 
                 + "\n   Preço: R$" + this.getPreco()
                 +" \n   Quantidade Camas: "+this.camasExtras;
         
