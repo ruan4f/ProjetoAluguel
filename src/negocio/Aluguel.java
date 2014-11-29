@@ -22,11 +22,11 @@ public class Aluguel {
     private Date dataSaida;
     
     public String gerarReciboAluguel(){
-        return "===============================\nLocatário: "+ getCliente().getNome() 
+        return "===============================\n Locatário: "+ getCliente().getNome() 
                +"\n Data e Horário de entrada: "+ getDataEntrada().toGMTString() 
-               +"\nData e Horário de Saída: " + getDataSaida().toGMTString() 
-               +"\nNúmero de diárias: "+ this.calculaNumeroDiarias()
-               +"\nTotal devido: R$" + this.calculaTotalDevido()
+               +"\n Data e Horário de Saída: " + getDataSaida().toGMTString() 
+               +"\n Número de diárias: "+ this.calculaNumeroDiarias()
+               +"\n Total devido: R$" + this.calculaTotalDevido()
                +"\n==============================";
     }
     
