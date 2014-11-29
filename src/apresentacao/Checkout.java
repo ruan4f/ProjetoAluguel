@@ -167,9 +167,10 @@ public class Checkout extends javax.swing.JFrame {
         try {
             aluguel = registroAlugueis.getAlugueis().get(registroAlugueis.buscaAluguel(txtNome.getText()));
             jTextLog.setText(aluguel.gerarReciboAluguel());
-            JOptionPane.showMessageDialog(this, "Este cliente está com a data de saída como prevista."
+            JOptionPane.showMessageDialog(this, "Este cliente está com a data de saída como data de previsão."
                     + "\nSe quiser alterar é só escolher a data de saída atual e "
-                    + "clicar em Registrar Saída.");
+                    + "\nclicar em Registrar Saída.");
+            jTextDia.requestFocus();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Cliente não encontrado. Por favor digite um nome válido!");
         }    

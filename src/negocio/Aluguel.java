@@ -133,13 +133,13 @@ public class Aluguel {
         if( null != this.quarto ){
             return "\n"+ "Cliente: " + cliente.getNome() 
                     +  quarto.toString() 
-                    + "\n Entrada: " + sdf.format(dataEntrada)
+                    + "\nEntrada: " + sdf.format(dataEntrada)
                     //+ "Saida=" + dataSaida.toString() 
                     +"\n" ;
         }else if( null != this.chale ){
             return "\n"+ "Cliente: " + cliente.getNome() 
                     +  chale.toString() 
-                    + "\n Entrada: " + sdf.format(dataEntrada)
+                    + "\nEntrada: " + sdf.format(dataEntrada)
                     //+ "Saida=" + dataSaida.toString() 
                     +"\n" ;
         } 

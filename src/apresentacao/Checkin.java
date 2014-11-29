@@ -209,7 +209,7 @@ public class Checkin extends javax.swing.JFrame {
                 // se achou um quarto com banheira
                 if ((pousada.buscaQuarto(i).isReservado() == false) && (pousada.buscaQuarto(i).isTemBanheira())) {
                     //Mensagem
-                    txtArea.setText("Reservamos o quarto " + (i + 1) + " com \n Banheira para o Cliente: \n" + txtNome.getText());
+                    txtArea.setText("Reservamos o quarto " + (i + 1) + " com \nBanheira para o Cliente: \n" + txtNome.getText());
                     //Instancia objetos que serão incluídos.
                     
                     Cliente cliente = new Cliente();
@@ -229,8 +229,7 @@ public class Checkin extends javax.swing.JFrame {
                         Date dataFormatadaSaida = formatter.parse(dataSaida);
                         aluguel.setDataSaida(dataFormatadaSaida);
                     }catch(ParseException e){
-                        JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");
-                               
+                        JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");       
                     }
                     
                     aluguel.getQuarto().setReservado(true);                   
@@ -246,7 +245,7 @@ public class Checkin extends javax.swing.JFrame {
                 // se achou um quarto com banheira
                 if ((pousada.buscaQuarto(i).isReservado() == false) && (pousada.buscaQuarto(i).isTemBanheira() == false)) {
                     //Mensagem
-                    txtArea.setText("Reservamos o quarto " + (i + 1) + " sem Banheira \n para o Cliente: \n" + txtNome.getText());
+                    txtArea.setText("Reservamos o quarto " + (i + 1) + " sem Banheira \npara o Cliente: \n" + txtNome.getText());
                     //Instancia objetos que serão incluídos.
                    
                     Cliente cliente = new Cliente();
@@ -258,6 +257,17 @@ public class Checkin extends javax.swing.JFrame {
                     aluguel.setCliente(cliente);
                     aluguel.setQuarto(pousada.buscaQuarto(i));
                     aluguel.setDataEntrada(data);
+                    
+                    //Faz a verificação da data prevista de saída
+                    try{
+                        String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
+                        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                        Date dataFormatadaSaida = formatter.parse(dataSaida);
+                        aluguel.setDataSaida(dataFormatadaSaida);
+                    }catch(ParseException e){
+                        JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");       
+                    }
+                    
                     aluguel.getQuarto().setReservado(true);
                     registroAlugueis.addAluguel(aluguel);
                     break;
@@ -297,6 +307,17 @@ public class Checkin extends javax.swing.JFrame {
                     aluguel.setCliente(cliente);
                     aluguel.setChale(pousada.getChale(i));
                     aluguel.setDataEntrada(data);
+                    
+                    //Faz a verificação da data prevista de saída
+                    try{
+                        String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
+                        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                        Date dataFormatadaSaida = formatter.parse(dataSaida);
+                        aluguel.setDataSaida(dataFormatadaSaida);
+                    }catch(ParseException e){
+                        JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");       
+                    }
+                    
                     aluguel.getChale().setReservado(true);
                     if (txtCamasExtars.getText().equals("")) {
                         aluguel.getChale().setCamasExtras(0);
