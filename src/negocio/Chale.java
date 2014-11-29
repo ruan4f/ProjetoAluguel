@@ -24,7 +24,7 @@ public class Chale extends Quarto {
     @Override
     public Double getPreco() {
         Double precoQuarto = super.getPreco();
-        Double precoChale = precoQuarto+(precoQuarto * 0.2);// + 20%
+        Double precoChale = precoQuarto + (precoQuarto * 0.2);// + 20%
         precoChale = precoChale + ( precoChale * (0.1 * camasExtras) ); // + 10% Cama Extra
         return  precoChale; 
                 

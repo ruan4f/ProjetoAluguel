@@ -46,7 +46,7 @@ public class RegistrosAlugueis {
         getAlugueis().add(aluguel);
     }
     
-    public int buscaAluguel  (String nome)throws Exception{
+    public int buscaAluguel(String nome)throws Exception{
         for(int i = 0; i <getAlugueis().size(); i++){
             if (getAlugueis().get(i).getCliente().getNome().equals(nome)){
             return i;    
@@ -60,7 +60,7 @@ public class RegistrosAlugueis {
         if( alugueis.size() == 0 ){
             return "NÃO HÁ QUARTOS ALUGADOS";
         }
-        return "Alugueis : " + alugueis.toString() ;
+        return "Alugueis: " + alugueis.toString() ;
     }
     
     public void removeAluguel(int i){

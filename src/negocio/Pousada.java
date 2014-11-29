@@ -72,7 +72,7 @@ public class Pousada {
 
     @Override
     public String toString() {
-        return "Quartos: "+this.getQuartos().toString()+"\n Chales"+this.getChales().toString();
+        return "Quartos: "+this.getQuartos().toString()+"\n Chales: "+this.getChales().toString();
     }
     /**
  *
@@ -81,17 +81,15 @@ public class Pousada {
     public Quarto buscaQuarto(int i){
         return getQuartos().get(i);
     }
-    
    
-    
-      public int buscaQuartoBanheira(Boolean temBanheira){
+    public int buscaQuartoBanheira(Boolean temBanheira){
         for (int i = 0; i <= getQuartos().size(); i++){
             if (getQuartos().get(i).isTemBanheira()) {
                 return i;
             }           
         }
         return -1;
-      }
+    }
 
      
 }

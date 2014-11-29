@@ -62,7 +62,7 @@ public class Quarto {
     public String toString() {
         //return super.toString();
         return "\nQuarto: " + this.getNumeroQuarto()  + "   Preço: R$" + this.getPreco() 
-                +" Possui Banheira: "+ (isTemBanheira() ? "Sim ":"Não " ) + " Disponivel :" + (isReservado() ? " Não":" Sim"  ) ;
+                +" Possui Banheira: "+ (isTemBanheira() ? "Sim ":"Não " ) + " Disponivel: " + (isReservado() ? " Não":" Sim"  ) ;
         
     }
 
