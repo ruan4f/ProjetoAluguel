@@ -52,6 +52,10 @@ public class fmLogin extends javax.swing.JFrame {
 
         jLabel2.setText("Senha:");
 
+        txtUsuario.setText("user");
+
+        txtSenha.setText("123");
+
         btLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Check-32.png"))); // NOI18N
         btLogin.setText("Login");
         btLogin.addActionListener(new java.awt.event.ActionListener() {
