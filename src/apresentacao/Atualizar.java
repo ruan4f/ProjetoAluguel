@@ -18,14 +18,13 @@ import javax.swing.JTextField;
  * @author vinicius.andrade
  */
 public class Atualizar extends javax.swing.JFrame {
-  Pousada pousada;
+    Pousada pousada;
     /**
      * Creates new form Atualizar
      */
     public Atualizar() {
         pousada = Pousada.getInstance();
         initComponents();
-         
     }
 
     /**
@@ -49,13 +48,7 @@ public class Atualizar extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtPrecoChale = new javax.swing.JTextField();
         btSair = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
         btNovo = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jLabel6 = new javax.swing.JLabel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Atualizar dados"));
 
@@ -88,24 +81,12 @@ public class Atualizar extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jLabel5.setText("Quartos e seus valores");
-
         btNovo.setText("Novo");
         btNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btNovoActionPerformed(evt);
             }
         });
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
-
-        jLabel6.setText("Chalés e seus valores");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -126,31 +107,20 @@ public class Atualizar extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btNovo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(btVisualizarPrecoAtual, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel5)))
+                            .addComponent(btVisualizarPrecoAtual, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btGravarPrecoNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btSair, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btGravarPrecoNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtPrecoChale, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtPrecoQuarto, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6)
-                                .addGap(29, 29, 29))))))
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtPrecoChale, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtPrecoQuarto, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,15 +145,7 @@ public class Atualizar extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btNovo)
                     .addComponent(btSair))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
-                .addGap(15, 15, 15))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -199,8 +161,8 @@ public class Atualizar extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -209,30 +171,19 @@ public class Atualizar extends javax.swing.JFrame {
 
     private void btVisualizarPrecoAtualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVisualizarPrecoAtualActionPerformed
         // TODO add your handling code here:
-        if (!txtNumChale.getText().isEmpty()) {
-            try{
-                Chale c = pousada.getChales().get( (Integer.parseInt(txtNumChale.getText())-1 ));
-                txtPrecoChale.setText(String.valueOf(c.getPreco()));
-            }catch (Exception ex){
-                JOptionPane.showMessageDialog(this, "Digite o número do Chalé");
-            }
-        }
         if (!txtNumQuarto.getText().isEmpty()) {
-            try{  
-                Quarto q = pousada.getQuartos().get( (Integer.parseInt(txtNumQuarto.getText())-1 ));
-                txtPrecoQuarto.setText(String.valueOf(q.getPreco()));
-            }catch (Exception ex){
-                JOptionPane.showMessageDialog(this, "Digite o número do Quarto");
+            if(Integer.parseInt(txtNumQuarto.getText()) < 1 || Integer.parseInt(txtNumQuarto.getText()) > 50){
+                JOptionPane.showMessageDialog(null, "Digite um numero entre 1 e " + (pousada.getQuartos().size()+1) );
             }
-        }       
+             
+                txtPrecoQuarto.setText(String.valueOf(pousada.getQuartos().get( (Integer.parseInt(txtNumQuarto.getText())-1 )).getPreco()));
+            
+        } 
     }//GEN-LAST:event_btVisualizarPrecoAtualActionPerformed
 
     private void btGravarPrecoNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGravarPrecoNovoActionPerformed
         // TODO add your handling code here:
-        
-        
         if (!txtNumChale.getText().isEmpty()) {
-            System.out.println("TENTANDO CHALE");
             int numeroChale = 0;
             try{
                 numeroChale = Integer.parseInt(txtNumChale.getText()) - 1;
@@ -244,27 +195,22 @@ public class Atualizar extends javax.swing.JFrame {
             if(numeroChale < 0 || numeroChale > pousada.getChales().size() ){
                 JOptionPane.showMessageDialog(null, "Digite um numero entre 1 e "+(pousada.getChales().size()+1) );
             }
-            Chale c = pousada.getChales().get(numeroChale);
-            c.setPreco(Double.parseDouble( txtPrecoChale.getText() ));
-            
+            pousada.getChales().get(numeroChale).setPreco(Double.parseDouble(txtPrecoChale.getText()));
         }
         if (!txtNumQuarto.getText().isEmpty()) {
-           System.out.println("TENTANDO QUARTO");
+           
            int numeroQuarto = 0;
             try{
                 numeroQuarto = Integer.parseInt(txtNumQuarto.getText()) - 1;
                 
             }catch (Exception ex){
-                    JOptionPane.showMessageDialog(this, "Digite o número do Chalé");
+                    JOptionPane.showMessageDialog(this, "Digite o número do Quarto");
             }
             
             if(numeroQuarto < 0 || numeroQuarto > pousada.getQuartos().size() ){
                 JOptionPane.showMessageDialog(null, "Digite um numero entre 1 e "+(pousada.getQuartos().size()+1) );
             }
-            Quarto q = pousada.getQuartos().get(numeroQuarto);
-            q.setPreco(Double.parseDouble( txtPrecoQuarto.getText() ));
-            
-            System.out.println(pousada.getQuarto(numeroQuarto));
+            pousada.getQuartos().get(numeroQuarto).setPreco(Double.parseDouble( txtPrecoQuarto.getText()));
         }
     }//GEN-LAST:event_btGravarPrecoNovoActionPerformed
 
@@ -275,6 +221,7 @@ public class Atualizar extends javax.swing.JFrame {
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
         // TODO add your handling code here:
+        limpar();
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void limpar(){
@@ -288,6 +235,7 @@ public class Atualizar extends javax.swing.JFrame {
         }
         
     }
+    
     
     /**
      * @param args the command line arguments
@@ -333,13 +281,7 @@ public class Atualizar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField txtNumChale;
     private javax.swing.JTextField txtNumQuarto;
     private javax.swing.JTextField txtPrecoChale;
