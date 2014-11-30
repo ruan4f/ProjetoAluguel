@@ -194,153 +194,154 @@ public class Checkin extends javax.swing.JFrame {
         }
         if (paraTudo) {
             JOptionPane.showMessageDialog(this, "No momento só alugamos uma instalação por pessoa");
-        }
-        
-        Pousada pousada = Pousada.getInstance();
-        //Localiza quarto Disponível
-        if (cbTipoAcomodacao.getSelectedItem() == "Quarto com Banheira") {
-            int i;
-        //verifica os quartos
-            for (i = 0; i < pousada.getQuantQuartos(); i++) {
-                // se achou um quarto com banheira
-                if ((pousada.buscaQuarto(i).isReservado() == false) && (pousada.buscaQuarto(i).isTemBanheira())) {
-                    //Faz a verificação da data prevista de saída
-                    try{
-                        String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
-                        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-                        Date dataFormatadaSaida = formatter.parse(dataSaida);
-                        aluguel.setDataSaida(dataFormatadaSaida);
-                        
-                        //Mensagem
-                        txtArea.setText("Reservamos o quarto " + (i + 1) + " com \nBanheira para o Cliente: \n" + txtNome.getText());
-                        //Instancia objetos que serão incluídos.
+        }else{
+            Pousada pousada = Pousada.getInstance();
+            //Localiza quarto Disponível
+            if (cbTipoAcomodacao.getSelectedItem() == "Quarto com Banheira") {
+                int i;
+            //verifica os quartos
+                for (i = 0; i < pousada.getQuantQuartos(); i++) {
+                    // se achou um quarto com banheira
+                    if ((pousada.buscaQuarto(i).isReservado() == false) && (pousada.buscaQuarto(i).isTemBanheira())) {
+                        //Faz a verificação da data prevista de saída
+                        try{
+                            String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
+                            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                            Date dataFormatadaSaida = formatter.parse(dataSaida);
+                            aluguel.setDataSaida(dataFormatadaSaida);
 
-                        Cliente cliente = new Cliente();
-                        Date data = new Date();
+                            //Mensagem
+                            txtArea.setText("Reservamos o quarto " + (i + 1) + " com \nBanheira para o Cliente: \n" + txtNome.getText());
+                            //Instancia objetos que serão incluídos.
 
-                        // Seta Atributos
-                        data.setTime(data.getTime());
-                        cliente.setNome(txtNome.getText());
-                        aluguel.setCliente(cliente);
-                        aluguel.setQuarto(pousada.buscaQuarto(i));
-                        aluguel.setDataEntrada(data);
-                        aluguel.getQuarto().setReservado(true);
-                    }catch(ParseException e){
-                        JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");
-                        return;
-                    }catch(Exception e){
-                        JOptionPane.showMessageDialog(this, "Data de previsão de saída em branco. Por favor escolha uma data.");       
-                        return;
+                            Cliente cliente = new Cliente();
+                            Date data = new Date();
+
+                            // Seta Atributos
+                            data.setTime(data.getTime());
+                            cliente.setNome(txtNome.getText());
+                            aluguel.setCliente(cliente);
+                            aluguel.setQuarto(pousada.buscaQuarto(i));
+                            aluguel.setDataEntrada(data);
+                            aluguel.getQuarto().setReservado(true);
+                        }catch(ParseException e){
+                            JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");
+                            return;
+                        }catch(Exception e){
+                            JOptionPane.showMessageDialog(this, "Data de previsão de saída em branco. Por favor escolha uma data.");       
+                            return;
+                        }
+                        //Adiciona um quarto com banheira                  
+                        registroAlugueis.addAluguel(aluguel);
+                        break;
+                    }else if ((pousada.buscaQuarto(i).isReservado()) && (pousada.buscaQuarto(i).isTemBanheira())){
+                        txtArea.setText("Não existe quarto com banheira disponível.");
                     }
-                    //Adiciona um quarto                   
-                    registroAlugueis.addAluguel(aluguel);
-                    break;
-                }else{
-                    txtArea.setText("Não existe quarto com banheira disponível.");
                 }
-            }
-            //Se achou um quarto sem banheira
-        } else if (cbTipoAcomodacao.getSelectedItem() == "Quarto sem Banheira") {
-            int i;
-            //verifica os quartos 
-            for (i = 0; i < pousada.getQuantQuartos(); i++) {
-                // se achou um quarto com banheira
-                if ((pousada.buscaQuarto(i).isReservado() == false) && (pousada.buscaQuarto(i).isTemBanheira() == false)) {
-                    //Faz a verificação da data prevista de saída
-                    try{
-                        String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
-                        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-                        Date dataFormatadaSaida = formatter.parse(dataSaida);
-                        aluguel.setDataSaida(dataFormatadaSaida);
-                        
-                        //Mensagem
-                        txtArea.setText("Reservamos o quarto " + (i + 1) + " sem Banheira \npara o Cliente: \n" + txtNome.getText());
-                        //Instancia objetos que serão incluídos.
+                //Se achou um quarto sem banheira
+            } else if (cbTipoAcomodacao.getSelectedItem() == "Quarto sem Banheira") {
+                int i;
+                //verifica os quartos 
+                for (i = 0; i < pousada.getQuantQuartos(); i++) {
+                    // se achou um quarto com banheira
+                    if ((pousada.buscaQuarto(i).isReservado() == false) && (pousada.buscaQuarto(i).isTemBanheira() == false)) {
+                        //Faz a verificação da data prevista de saída
+                        try{
+                            String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
+                            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                            Date dataFormatadaSaida = formatter.parse(dataSaida);
+                            aluguel.setDataSaida(dataFormatadaSaida);
 
-                        Cliente cliente = new Cliente();
-                        Date data = new Date();
+                            //Mensagem
+                            txtArea.setText("Reservamos o quarto " + (i + 1) + " sem Banheira \npara o Cliente: \n" + txtNome.getText());
+                            //Instancia objetos que serão incluídos.
 
-                        // Seta Atributos
-                        data.setTime(data.getTime());
-                        cliente.setNome(txtNome.getText());
-                        aluguel.setCliente(cliente);
-                        aluguel.setQuarto(pousada.buscaQuarto(i));
-                        aluguel.setDataEntrada(data);
-                        aluguel.getQuarto().setReservado(true);
+                            Cliente cliente = new Cliente();
+                            Date data = new Date();
 
-                    }catch(ParseException e){
-                        JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");       
-                        return;
-                    }catch(Exception e){
-                        JOptionPane.showMessageDialog(this, "Data de previsão de saída em branco. Por favor escolha uma data.");       
-                        return;
+                            // Seta Atributos
+                            data.setTime(data.getTime());
+                            cliente.setNome(txtNome.getText());
+                            aluguel.setCliente(cliente);
+                            aluguel.setQuarto(pousada.buscaQuarto(i));
+                            aluguel.setDataEntrada(data);
+                            aluguel.getQuarto().setReservado(true);
+
+                        }catch(ParseException e){
+                            JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");       
+                            return;
+                        }catch(Exception e){
+                            JOptionPane.showMessageDialog(this, "Data de previsão de saída em branco. Por favor escolha uma data.");       
+                            return;
+                        }
+                        //Adiciona um quarto sem banheira
+                        registroAlugueis.addAluguel(aluguel);
+                        break;
+                    }else{
+                        txtArea.setText(" Não existe quarto sem banheira disponível.");
                     }
-                    //Adiciona um quarto
-                    registroAlugueis.addAluguel(aluguel);
-                    break;
-                }else{
-                    txtArea.setText(" Não existe quarto sem banheira disponível.");
                 }
-            }
-        //Se achou um chalé
-        } else if (cbTipoAcomodacao.getSelectedItem() == "Chalé") {
-            int i;
-            try {
-                Integer.parseInt(txtCamasExtars.getText());
-            }catch (Exception ex){
-                JOptionPane.showMessageDialog(this, "Somente números são permitidos");
-                return;
-            }
-        
-//verifica os quartos 
-            for (i = 0; i < pousada.getQuantChales(); i++) {
-                // se achou um quarto com banheira
-                if ((pousada.getChale(i).isReservado() == false) && (pousada.buscaQuarto(i).isTemBanheira() == false)) {
-                    //Mensagem
-                    if (txtCamasExtars.getText().equals("")) {
-                        txtArea.setText("Reservamos o Chalé " + (i + 1) + " \n para o Cliente: " + txtNome.getText());
-                    } else {
-                        txtArea.setText("Reservamos o Chalé " + (i + 1) + "\n"
-                                + "com  " + txtCamasExtars.getText() + " camas extras \n para o Cliente: " + txtNome.getText());
-                    }
-
-                    //Instancia objetos que serão incluídos.
-                    Cliente cliente = new Cliente();
-                    Date data = new Date();
-                  
-                    // Seta Atributos
-                    data.setTime(data.getTime());
-                    cliente.setNome(txtNome.getText());
-                    aluguel.setCliente(cliente);
-                    aluguel.setChale(pousada.getChale(i));
-                    aluguel.setDataEntrada(data);
-                    
-                    //Faz a verificação da data prevista de saída
-                    try{
-                        String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
-                        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-                        Date dataFormatadaSaida = formatter.parse(dataSaida);
-                        aluguel.setDataSaida(dataFormatadaSaida);
-                    }catch(ParseException e){
-                        JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");       
-                        return;
-                    }catch(Exception e){
-                        JOptionPane.showMessageDialog(this, "Data de previsão de saída em branco. Por favor escolha uma data.");       
-                        return;
-                    }
-                    
-                    aluguel.getChale().setReservado(true);
-                    if (txtCamasExtars.getText().equals("")) {
-                        aluguel.getChale().setCamasExtras(0);
-                    } else {
-                        aluguel.getChale().setCamasExtras(Integer.valueOf(txtCamasExtars.getText()));
-                    }
-                    registroAlugueis.addAluguel(aluguel);
-                    break;
-                }else{
-                    txtArea.setText(" Não existe chalé disponível.");
+            //Se achou um chalé
+            } else if (cbTipoAcomodacao.getSelectedItem() == "Chalé") {
+                int i;
+                try {
+                    Integer.parseInt(txtCamasExtars.getText());
+                }catch (Exception ex){
+                    JOptionPane.showMessageDialog(this, "Somente números são permitidos");
+                    return;
                 }
-            } 
+
+                //verifica os quartos 
+                for (i = 0; i < pousada.getQuantChales(); i++) {
+                    // se achou um quarto com banheira
+                    if ((pousada.getChale(i).isReservado() == false) && (pousada.buscaQuarto(i).isTemBanheira() == false)) {
+                        //Faz a verificação da data prevista de saída
+                        try{
+                            String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
+                            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                            Date dataFormatadaSaida = formatter.parse(dataSaida);
+                            aluguel.setDataSaida(dataFormatadaSaida);
+
+                            //Mensagem
+                            if (txtCamasExtars.getText().equals("")) {
+                                txtArea.setText("Reservamos o Chalé " + (i + 1) + " \n para o Cliente: " + txtNome.getText());
+                            } else {
+                                txtArea.setText("Reservamos o Chalé " + (i + 1) + "\n"
+                                        + "com  " + txtCamasExtars.getText() + " camas extras \n para o Cliente: " + txtNome.getText());
+                            }
+
+                            //Instancia objetos que serão incluídos.
+                            Cliente cliente = new Cliente();
+                            Date data = new Date();
+
+                            // Seta Atributos
+                            data.setTime(data.getTime());
+                            cliente.setNome(txtNome.getText());
+                            aluguel.setCliente(cliente);
+                            aluguel.setChale(pousada.getChale(i));
+                            aluguel.setDataEntrada(data);
+                            aluguel.getChale().setReservado(true);
+                            if (txtCamasExtars.getText().equals("")) {
+                                aluguel.getChale().setCamasExtras(0);
+                            } else {
+                                aluguel.getChale().setCamasExtras(Integer.valueOf(txtCamasExtars.getText()));
+                            }
+
+                        }catch(ParseException e){
+                            JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");       
+                            return;
+                        }catch(Exception e){
+                            JOptionPane.showMessageDialog(this, "Data de previsão de saída em branco. Por favor escolha uma data.");       
+                            return;
+                        }
+                        //Adiciona um chalé        
+                        registroAlugueis.addAluguel(aluguel);
+                        break;
+                    }else{
+                        txtArea.setText(" Não existe chalé disponível.");
+                    }
+                } 
+            }
         }
     }//GEN-LAST:event_btRegistrarActionPerformed
 
