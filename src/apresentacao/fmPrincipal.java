@@ -227,6 +227,9 @@ public class fmPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here
+        fmSobre sobre = new fmSobre();
+        jDesktopPane1.add(sobre);//Adicionar o formulário em nosso container
+        sobre.setVisible(true);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItemCheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCheckInActionPerformed

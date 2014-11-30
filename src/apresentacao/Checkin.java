@@ -184,6 +184,7 @@ public class Checkin extends javax.swing.JFrame {
         //VALIDA CAMPOS 
         if (txtNome.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Digite um nome!");
+            txtNome.requestFocus();
             return;
         }
         Aluguel aluguel2 = new Aluguel();   
@@ -194,6 +195,8 @@ public class Checkin extends javax.swing.JFrame {
         }
         if (paraTudo) {
             JOptionPane.showMessageDialog(this, "No momento só alugamos uma instalação por pessoa");
+            limpar();// limpa os componentes
+            txtNome.requestFocus();
         }else{
             Pousada pousada = Pousada.getInstance();
             //Localiza quarto Disponível
@@ -226,9 +229,11 @@ public class Checkin extends javax.swing.JFrame {
                             aluguel.getQuarto().setReservado(true);
                         }catch(ParseException e){
                             JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");
+                            dcData.requestFocus();
                             return;
                         }catch(Exception e){
                             JOptionPane.showMessageDialog(this, "Data de previsão de saída em branco. Por favor escolha uma data.");       
+                            dcData.requestFocus();
                             return;
                         }
                         //Adiciona um quarto com banheira                  
@@ -269,9 +274,11 @@ public class Checkin extends javax.swing.JFrame {
 
                         }catch(ParseException e){
                             JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");       
+                            dcData.requestFocus();
                             return;
                         }catch(Exception e){
                             JOptionPane.showMessageDialog(this, "Data de previsão de saída em branco. Por favor escolha uma data.");       
+                            dcData.requestFocus();
                             return;
                         }
                         //Adiciona um quarto sem banheira
@@ -329,9 +336,11 @@ public class Checkin extends javax.swing.JFrame {
 
                         }catch(ParseException e){
                             JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");       
+                            dcData.requestFocus();
                             return;
                         }catch(Exception e){
                             JOptionPane.showMessageDialog(this, "Data de previsão de saída em branco. Por favor escolha uma data.");       
+                            dcData.requestFocus();
                             return;
                         }
                         //Adiciona um chalé        
@@ -353,6 +362,7 @@ public class Checkin extends javax.swing.JFrame {
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
         // TODO add your handling code here:
         limpar();//Limpa os componentes
+        txtNome.requestFocus();
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void limpar(){

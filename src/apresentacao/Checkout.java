@@ -216,14 +216,17 @@ public class Checkout extends javax.swing.JFrame {
             }
         }catch(ParseException e){
             JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor digite dd/MM/yyyy HH:mm");                  
+            jTextDia.requestFocus();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "Data em branco. Por favor escolha uma data.");
+            jTextDia.requestFocus();
         } 
     }//GEN-LAST:event_btRegistrarSaidaActionPerformed
 
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
         // TODO add your handling code here:
         limpar();//Limpa os componentes
+        txtNome.requestFocus();
     }//GEN-LAST:event_btNovoActionPerformed
 
     private void limpar(){
