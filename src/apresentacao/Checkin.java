@@ -1,5 +1,6 @@
 package apresentacao;
 
+import java.awt.Component;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import negocio.Cliente;
@@ -8,6 +9,7 @@ import negocio.Pousada;
 import negocio.Aluguel;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -57,19 +59,8 @@ public class Checkin extends javax.swing.JFrame {
         jLabel2.setText("Nome: ");
 
         cbTipoAcomodacao.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Quarto com Banheira", "Quarto sem Banheira", "Chalé", " " }));
-        cbTipoAcomodacao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbTipoAcomodacaoActionPerformed(evt);
-            }
-        });
 
         jLabel3.setText("Camas extras");
-
-        txtCamasExtars.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCamasExtarsActionPerformed(evt);
-            }
-        });
 
         btRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Save_32.png"))); // NOI18N
         btRegistrar.setText("Registrar");
@@ -97,6 +88,11 @@ public class Checkin extends javax.swing.JFrame {
 
         btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/new-32.png"))); // NOI18N
         btNovo.setText("Novo");
+        btNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -188,7 +184,7 @@ public class Checkin extends javax.swing.JFrame {
         //VALIDA CAMPOS 
         if (txtNome.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "Digite um nome!");
-                return;
+            return;
         }
         Aluguel aluguel2 = new Aluguel();   
         try {
@@ -224,10 +220,15 @@ public class Checkin extends javax.swing.JFrame {
                     
                     //Faz a verificação da data prevista de saída
                     try{
-                        String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
-                        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-                        Date dataFormatadaSaida = formatter.parse(dataSaida);
-                        aluguel.setDataSaida(dataFormatadaSaida);
+                        if(!(dcData.getDate() == null)){
+                            String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
+                            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                            Date dataFormatadaSaida = formatter.parse(dataSaida);
+                            aluguel.setDataSaida(dataFormatadaSaida);
+                        }else{
+                            JOptionPane.showMessageDialog(null,"Campo data de previsão vazia. Por favor escolha uma data");
+                            return;
+                        }
                     }catch(ParseException e){
                         JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");       
                     }
@@ -260,10 +261,15 @@ public class Checkin extends javax.swing.JFrame {
                     
                     //Faz a verificação da data prevista de saída
                     try{
-                        String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
-                        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-                        Date dataFormatadaSaida = formatter.parse(dataSaida);
-                        aluguel.setDataSaida(dataFormatadaSaida);
+                        if(!(dcData.getDate() == null)){
+                            String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
+                            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                            Date dataFormatadaSaida = formatter.parse(dataSaida);
+                            aluguel.setDataSaida(dataFormatadaSaida);
+                        }else{
+                            JOptionPane.showMessageDialog(null,"Campo data de previsão vazia. Por favor escolha uma data");
+                            return;
+                        }
                     }catch(ParseException e){
                         JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");       
                     }
@@ -276,12 +282,12 @@ public class Checkin extends javax.swing.JFrame {
             }
         } else if (cbTipoAcomodacao.getSelectedItem() == "Chalé") {
             int i;
-        try {
-        Integer.parseInt(txtCamasExtars.getText());
-        }catch (Exception ex){
+            try {
+                Integer.parseInt(txtCamasExtars.getText());
+            }catch (Exception ex){
                 JOptionPane.showMessageDialog(this, "Somente números são permitidos");
                 return;
-        }
+            }
         
 //verifica os quartos 
             for (i = 0; i < pousada.getQuantChales(); i++) {
@@ -310,10 +316,15 @@ public class Checkin extends javax.swing.JFrame {
                     
                     //Faz a verificação da data prevista de saída
                     try{
-                        String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
-                        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-                        Date dataFormatadaSaida = formatter.parse(dataSaida);
-                        aluguel.setDataSaida(dataFormatadaSaida);
+                        if(!(dcData.getDate() == null)){
+                            String dataSaida = new SimpleDateFormat("dd/MM/yyyy HH:mm").format(dcData.getDate());
+                            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                            Date dataFormatadaSaida = formatter.parse(dataSaida);
+                            aluguel.setDataSaida(dataFormatadaSaida);
+                        }else{
+                            JOptionPane.showMessageDialog(null,"Campo data de previsão vazia. Por favor escolha uma data");
+                            return;
+                        }
                     }catch(ParseException e){
                         JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor escolha uma data");       
                     }
@@ -328,24 +339,34 @@ public class Checkin extends javax.swing.JFrame {
                     break;
                 }
                 txtArea.setText(" Não existe quarto disponível.");
-            }
-            
+            } 
         }
     }//GEN-LAST:event_btRegistrarActionPerformed
-
-    private void cbTipoAcomodacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTipoAcomodacaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbTipoAcomodacaoActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btSairActionPerformed
 
-    private void txtCamasExtarsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCamasExtarsActionPerformed
+    private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtCamasExtarsActionPerformed
+        limpar();//Limpa os componentes
+    }//GEN-LAST:event_btNovoActionPerformed
 
+    private void limpar(){
+        Component components[] = jPanel1.getComponents();  
+        for (Component component : components)  
+        {  
+            if (component instanceof JTextField)  
+            {  
+                ((JTextField)component).setText(null);  
+            }  
+        }
+        cbTipoAcomodacao.setSelectedIndex(0);
+        txtArea.setText(null);
+        dcData.setCalendar(null);
+    }
+    
     /**
      * @param args the command line arguments
      */

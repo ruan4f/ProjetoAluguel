@@ -1,12 +1,11 @@
 package apresentacao;
 
 import negocio.RegistrosAlugueis;
+import negocio.RegistroSaidas;
 import negocio.Aluguel;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /*
@@ -184,6 +183,7 @@ public class Checkout extends javax.swing.JFrame {
     private void btRegistrarSaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarSaidaActionPerformed
         // TODO add your handling code here:
         RegistrosAlugueis registroAlugueis = RegistrosAlugueis.getInstance();
+        RegistroSaidas registroAlugueisSaidas = RegistroSaidas.getInstance();
         Aluguel aluguel =  new Aluguel();
         try {
             aluguel = registroAlugueis.getAlugueis().get(registroAlugueis.buscaAluguel(txtNome.getText()));
@@ -200,12 +200,12 @@ public class Checkout extends javax.swing.JFrame {
             }else {
                 aluguel.quarto.setReservado(false);    
             }    
-            try { registroAlugueis.removeAluguel(registroAlugueis.buscaAluguel(txtNome.getText()));
+            try { 
+                registroAlugueisSaidas.addSaidaAluguel(aluguel);
+                registroAlugueis.removeAluguel(registroAlugueis.buscaAluguel(txtNome.getText()));
             }catch (Exception ex) {
                 JOptionPane.showMessageDialog(this, "Não foi possível realizar checkout");
             }
-            
-            
         }catch(ParseException e){
             JOptionPane.showMessageDialog(null,"Data no formato errado. Por favor digite dd/MM/yyyy HH:mm");
                                

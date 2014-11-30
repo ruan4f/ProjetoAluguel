@@ -16,6 +16,7 @@ import javax.swing.Timer;
 import negocio.Inicializador;
 import negocio.Pousada;
 import negocio.RegistrosAlugueis;
+import negocio.RegistroSaidas;
 
 /**
  *
@@ -25,6 +26,8 @@ public class fmPrincipal extends javax.swing.JFrame {
     
     static public Pousada pousada; 
     static public RegistrosAlugueis registrosAlugueis;
+    static public RegistroSaidas registrosAlugueisSaidas;
+    
     
     /**
      * Creates new form fmPrincipal
@@ -32,6 +35,7 @@ public class fmPrincipal extends javax.swing.JFrame {
     public fmPrincipal() {
         this.pousada = Pousada.getInstance();
         this.registrosAlugueis = RegistrosAlugueis.getInstance();
+        this.registrosAlugueisSaidas = RegistroSaidas.getInstance();
         Inicializador inicializador = new Inicializador();
         inicializador.InicializaQuartos(pousada);
         inicializador.InicializaChales(pousada);
@@ -222,9 +226,7 @@ public class fmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        // TODO add your handling code here:
-        
-         
+        // TODO add your handling code here
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItemCheckInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCheckInActionPerformed

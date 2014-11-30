@@ -149,9 +149,6 @@
               </StringArray>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbTipoAcomodacaoActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
@@ -159,9 +156,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCamasExtars">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCamasExtarsActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btRegistrar">
           <Properties>
@@ -219,6 +213,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Novo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btNovoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

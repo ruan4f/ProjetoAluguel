@@ -1,6 +1,7 @@
 package apresentacao;
 
 import negocio.RegistrosAlugueis;
+import negocio.RegistroSaidas;
 import negocio.Pousada;
 
 /*
@@ -15,6 +16,7 @@ import negocio.Pousada;
 public class Relatorio extends javax.swing.JFrame {
      Pousada pousada = Pousada.getInstance();
      RegistrosAlugueis reg = RegistrosAlugueis.getInstance();
+     RegistroSaidas regSaidas = RegistroSaidas.getInstance();
     /**
      * Creates new form Relatorio
      */
@@ -37,6 +39,7 @@ public class Relatorio extends javax.swing.JFrame {
         btRelatorioAlugueis = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
         btRelatorioSaidas = new javax.swing.JButton();
+        btNovo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,6 +67,19 @@ public class Relatorio extends javax.swing.JFrame {
 
         btRelatorioSaidas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/report-32.png"))); // NOI18N
         btRelatorioSaidas.setText("Gerar Relatório de Saídas");
+        btRelatorioSaidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRelatorioSaidasActionPerformed(evt);
+            }
+        });
+
+        btNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/new-32.png"))); // NOI18N
+        btNovo.setText("Novo");
+        btNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btNovoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -74,6 +90,8 @@ public class Relatorio extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btSair)
+                        .addGap(39, 39, 39)
+                        .addComponent(btNovo)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1)
@@ -95,7 +113,9 @@ public class Relatorio extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 454, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btSair)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btSair)
+                    .addComponent(btNovo))
                 .addGap(30, 30, 30))
         );
 
@@ -122,13 +142,23 @@ public class Relatorio extends javax.swing.JFrame {
 
     private void btRelatorioAlugueisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatorioAlugueisActionPerformed
         // TODO add your handling code here:
-        this.jTextResult.setText( reg.toString());
+        this.jTextResult.setText(reg.toString());
     }//GEN-LAST:event_btRelatorioAlugueisActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
         // TODO add your handling code here:
         this.dispose();;
     }//GEN-LAST:event_btSairActionPerformed
+
+    private void btRelatorioSaidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRelatorioSaidasActionPerformed
+        // TODO add your handling code here:
+        this.jTextResult.setText(regSaidas.toString());
+    }//GEN-LAST:event_btRelatorioSaidasActionPerformed
+
+    private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
+        // TODO add your handling code here:
+        jTextResult.setText(null);
+    }//GEN-LAST:event_btNovoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,6 +196,7 @@ public class Relatorio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btNovo;
     private javax.swing.JButton btRelatorioAlugueis;
     private javax.swing.JButton btRelatorioSaidas;
     private javax.swing.JButton btSair;
