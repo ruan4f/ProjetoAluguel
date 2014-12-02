@@ -10,8 +10,9 @@ José Roberto do Patrocinio - RA:6200183927
 
 Tayson Rangel de Souza - RA:5614124135 
 
-Gilvan
+Gilvan Oliveira da Silva - RA: 5660124168
 
-Jorge
+Jorde da S. Freitas - RA: 5822153427
+
 ===========
 ATPS de Paradigma de Linguaguens de Programação
