@@ -161,8 +161,6 @@ public class fmLogin extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Usuárion ou senha incorretos");
         }
-        
-        
     }//GEN-LAST:event_btLoginActionPerformed
 
     private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed

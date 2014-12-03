@@ -207,8 +207,7 @@ public class fmPrincipal extends javax.swing.JFrame {
         int valor = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja sair?","Sistemas de Prontuários Médicos",0);
         if(valor == 0){
             System.exit(0);//Finaliza o programa
-        }
-        
+        }  
     }//GEN-LAST:event_btSairActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -260,7 +259,6 @@ public class fmPrincipal extends javax.swing.JFrame {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         //Obter data atual com Date
         Date date = new Date();
-        
         return dateFormat.format(date);
     }
     
